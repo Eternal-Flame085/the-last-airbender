@@ -1,0 +1,27 @@
+<h1>People living in the Fire Nation: <%= @characters.count %></h1>
+<h3>Members in the Fire Nation:</h3>
+
+<% @characters.each do |character| %>
+  <section id="person-<%= character.id %>">
+    <% if character.image != nil %>
+      <%= image_tag character.image %>
+    <% else %>
+      <p>No Image!</p>
+    <% end %>
+
+    <p>
+      <b>Name:</b> <%= character.name %><br>
+      <b>Affiliation:</b> <%= character.affiliation %><br>
+
+      <b>Allies:</b><br>
+      <% character.allies.each do |allie| %>
+        <%= allie %>
+      <% end %><br>
+
+      <b>Enemies:</b><br>
+      <% character.enemies.each do |enemie| %>
+        <%= enemie %>
+      <% end %><br><br>
+    </p>
+  </section>
+<% end %>
